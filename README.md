@@ -16,3 +16,5 @@ _Currently in beta so expect bugs._
 - City NPCs (Lively Mode) (0%)
 - Fishing notifications (0%)
 - Macros (100%)
+- Miningfy Initial Support (0%)
+- Update to latest game version (0%)
