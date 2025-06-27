@@ -5,7 +5,7 @@ _I need to get some sleep_
 
 SciFy was made when I (Chickenmanfy) thought it would be fun to learn how to make mods in Quilt. It has since been moved to Fabric though, since the community wanted that.
 
-I then remembered when one of my friends (BearCat865) suggested making a Dungeonfy mod, and here we are. ("Here" being with a blank slate because currently it's not done.)
+I then remembered when one of my friends (BearCat865) suggested making a Dungeonfy mod, and here we are.
 
 ---
 # Roadmap
