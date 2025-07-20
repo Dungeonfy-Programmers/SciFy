@@ -18,3 +18,6 @@ _Currently in beta so expect bugs._
 - Miningfy Initial Support (0%)
 - Update to latest game version (70%)
 - Implement Language Support
+
+
+See [here](UPDATE_TODO.md) for progress on updating to 1.21.8
