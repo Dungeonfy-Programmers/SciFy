@@ -1,6 +1,7 @@
 package chickenmanfy.scify.modules
 
 import net.minecraft.client.MinecraftClient
+import chickenmanfy.scify.Global
 
 var fishingToggle: Boolean = false
 class FishingNotif {
@@ -14,10 +15,7 @@ class FishingNotif {
     // toggleFishingNotif()
 
     fun fishingNotif() {
-        if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "dungeonfy.minehut.gg" ||
-            MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "51.222.121.148:25599" ||
-            MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "minehut.com" ||
-            modDisableOverride) {
+      if (Global().ipCheck()[0])
             if (fishingToggle) {
                 return
             }

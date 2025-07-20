@@ -13,8 +13,8 @@ _Currently in beta so expect bugs._
 - Right shift menu to enable and disable mods (100%)
 - Health & Food bars replaced with dynamic bar similar to EXP bar (100%)
 - Auto-Welcome (20%) **WARNING: This feature may prove to be annoying, in which case we will remove it.**
-- City NPCs (Lively Mode) (0%)
 - Fishing notifications (0%)
 - Macros (100%)
 - Miningfy Initial Support (0%)
-- Update to latest game version (0%)
+- Update to latest game version (70%)
+- Implement Language Support

@@ -7,6 +7,7 @@ import net.minecraft.client.MinecraftClient
 import net.minecraft.client.option.KeyBinding
 import net.minecraft.client.util.InputUtil
 import org.lwjgl.glfw.GLFW
+import chickenmanfy.scify.Global
 
 
 class Hotkey {
@@ -49,31 +50,19 @@ class Hotkey {
 
         ClientTickEvents.END_CLIENT_TICK.register(ClientTickEvents.EndTick {
             while (warp.wasPressed()) {
-                if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "dungeonfy.minehut.gg" ||
-                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "51.222.121.148:25599" ||
-                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "minehut.com" ||
-                    modDisableOverride)
-                {
+                if (Global().ipCheck()[0]) {
                     MinecraftClient.getInstance().networkHandler!!.sendChatCommand("warp")
                 }
 
             }
             while (enderchest.wasPressed()) {
-                if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "dungeonfy.minehut.gg" ||
-                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "51.222.121.148:25599" ||
-                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "minehut.com" ||
-                    modDisableOverride)
-                {
+                if (Global().ipCheck()[0]) {
                     MinecraftClient.getInstance().networkHandler!!.sendChatCommand("ec")
                     println(ClientReceiveMessageEvents.CHAT)
                 }
             }
             while (guide.wasPressed()) {
-                if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "dungeonfy.minehut.gg" ||
-                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "51.222.121.148:25599" ||
-                    MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "minehut.com" ||
-                    modDisableOverride)
-                {
+                if (Global().ipCheck()[1]) {
                     MinecraftClient.getInstance().networkHandler!!.sendChatCommand("guide")
                 }
             }

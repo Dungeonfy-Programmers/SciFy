@@ -51,10 +51,7 @@ class Bars {
             val tessellator: Tessellator = Tessellator.getInstance()
             val buffer: BufferBuilder = tessellator.buffer
             val positionMatrix = drawContext?.matrices?.peek()?.positionMatrix
-            if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "dungeonfy.minehut.gg" ||
-                MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "51.222.121.148:25599" ||
-                MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "minehut.com" ||
-                modDisableOverride) {
+            if (Global().ipCheck()[0]) {
                 if (barsToggle) {
                     if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "51.222.121.148:25599") {
                         buffer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR_TEXTURE)

@@ -9,6 +9,7 @@ import net.minecraft.client.gui.tooltip.Tooltip
 import net.minecraft.client.gui.widget.ButtonWidget
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
+import chickenmanfy.scify.Global
 
 var modDisableOverride = false
 @Environment(EnvType.CLIENT)
@@ -17,7 +18,6 @@ class Menu : Screen(Text.literal("SciFy Menu")) {
     private var fishingNotif: ButtonWidget? = null
     private var watermark: ButtonWidget? = null
     private var autoWelcome: ButtonWidget? = null
-    private var livelyMode: ButtonWidget? = null
     private var resourcePack: ButtonWidget? = null
     private var forceMod: ButtonWidget? = null
 
@@ -66,13 +66,6 @@ class Menu : Screen(Text.literal("SciFy Menu")) {
             .tooltip(Tooltip.of(Text.literal("Automatically sends \"wb\" when a player joins. (${if (autoWelcomeToggle) "Enabled" else "Disabled"})")))
             .build()
         autoWelcome?.active = false
-        livelyMode = ButtonWidget.builder(Text.literal("City NPCs (Lively Mode)")) {
-            LivelyMode().toggleLivelyMode() // Call the function toggleLivelyMode() from the LivelyMode.kt module
-            MinecraftClient.getInstance().setScreen(Menu())
-        }
-            .dimensions(width / 2 - 205, 164, 200, 20)
-            .tooltip(Tooltip.of(Text.literal("Replaces Villagers with player NPCs (${if (livelyModeToggle) "Enabled" else "Disabled"})")))
-            .build()
         resourcePack = ButtonWidget.builder(Text.literal("Toggle Resource Pack")) {
             // TODO: Implement Resource pack
             MinecraftClient.getInstance().setScreen(Menu())
@@ -93,7 +86,6 @@ class Menu : Screen(Text.literal("SciFy Menu")) {
         addDrawableChild(fishingNotif)
         addDrawableChild(watermark)
         addDrawableChild(autoWelcome)
-        //addDrawableChild(livelyMode)
         addDrawableChild(resourcePack)
         addDrawableChild(forceMod)
     }

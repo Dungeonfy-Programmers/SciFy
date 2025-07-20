@@ -1,6 +1,7 @@
 package chickenmanfy.scify
 
 import chickenmanfy.scify.modules.* // woo fancy import all modules
+import chickenmanfy.scify.Global
 import net.fabricmc.api.ClientModInitializer
 
 
