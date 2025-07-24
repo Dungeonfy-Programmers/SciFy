@@ -53,7 +53,7 @@ class Bars {
             val positionMatrix = drawContext?.matrices?.peek()?.positionMatrix
             if (Global().ipCheck()[0]) {
                 if (barsToggle) {
-                    if (MinecraftClient.getInstance().networkHandler?.serverInfo?.address == "51.222.121.148:25599") {
+                    if (Global().ipCheck()[1]) {
                         buffer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR_TEXTURE)
                         buffer.vertex(positionMatrix, xReality, yReality, 0f).color(1f, 1f, 1f, 1f).texture(0f, 0f).next()
                         buffer.vertex(positionMatrix, xReality, yReality + height, 0f).color(1f, 1f, 1f, 1f).texture(0f, 1f).next()
