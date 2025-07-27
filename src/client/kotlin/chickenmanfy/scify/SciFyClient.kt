@@ -12,8 +12,7 @@ object SciFyClient : ClientModInitializer {
         Hotkey().hotkeys()
         AutoWelcome().autoWelcome()
         FishingNotif().fishingNotif()
-        Bars().bars()
-        Watermark().watermark()
-        LivelyMode().livelyMode()
+        //Bars().bars()
+        //Watermark().watermark()
     }
 }

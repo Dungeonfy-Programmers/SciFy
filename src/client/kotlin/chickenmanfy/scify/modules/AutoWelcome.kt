@@ -1,6 +1,5 @@
 package chickenmanfy.scify.modules
 
-import net.minecraft.client.MinecraftClient
 import chickenmanfy.scify.Global
 
 var autoWelcomeToggle: Boolean = false
@@ -12,7 +11,7 @@ class AutoWelcome {
     }
 
     fun autoWelcome() {
-      if (Global().ipCheck()[0])
+      if (Global().ipCheck()[0]) {
             if (autoWelcomeToggle) {
                 return
             }

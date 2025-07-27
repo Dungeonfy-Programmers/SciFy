@@ -1,5 +1,7 @@
 # TODO for updating version to 1.21.8
 
-- [ ] Update Gradle
-- [ ] Build
-- [ ] Fix Errors
+- [x] Update Gradle
+- [x] Build
+- [ ] Fix Errors:
+- [ ] Fix Menu Image Render
+- [ ] Fix HUD Render

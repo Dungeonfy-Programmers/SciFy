@@ -15,7 +15,7 @@ class FishingNotif {
     // toggleFishingNotif()
 
     fun fishingNotif() {
-      if (Global().ipCheck()[0])
+      if (Global().ipCheck()[0]) {
             if (fishingToggle) {
                 return
             }
