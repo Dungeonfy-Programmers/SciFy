@@ -97,8 +97,6 @@ class Bars: HudElement {
         val height = 18
         val xHealth = 5
         val yHealth = 5
-        //val xReality = 5
-        //val yReality = 10 + height
 
         val maxHealthDivided = MinecraftClient.getInstance().player?.maxHealth?.div(20)?.toInt()
         val health = if (MinecraftClient.getInstance().player?.health?.toInt()?.div(maxHealthDivided!!)!! <= 20) MinecraftClient.getInstance().player?.health?.toInt()?.div(maxHealthDivided) else 20

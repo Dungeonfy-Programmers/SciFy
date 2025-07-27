@@ -37,12 +37,12 @@ class Menu : Screen(Text.literal("SciFy Menu")) {
     }
     public override fun init() {
 
-        dynamicBars = ButtonWidget.builder(Text.literal("Custom Health/Mana")) {
+        dynamicBars = ButtonWidget.builder(Text.literal("Custom Health")) {
             toggleBars() // Call the function toggleBars() from the bars.kt module
             MinecraftClient.getInstance().setScreen(Menu())
         }
             .dimensions(width / 2 - 205, 84, 200, 20)
-            .tooltip(Tooltip.of(Text.literal("Custom Health and Mana bars. (${if (barsToggle) "Enabled" else "Disabled"})")))
+            .tooltip(Tooltip.of(Text.literal("Custom health bar. (${if (barsToggle) "Enabled" else "Disabled"})")))
             .build()
         fishingNotif = ButtonWidget.builder(Text.literal("Fishing Notifications")) {
             FishingNotif().toggleFishingNotif() // Call the function toggleFishingNotif() from the FishingNotif.kt module
@@ -72,7 +72,7 @@ class Menu : Screen(Text.literal("SciFy Menu")) {
             MinecraftClient.getInstance().setScreen(Menu())
         }
             .dimensions(width / 2 + 5, 124, 200, 20)
-            .tooltip(Tooltip.of(Text.literal("Toggles the community resource pack. (${if (fishingToggle) "Enabled" else "Disabled"})")))
+            .tooltip(Tooltip.of(Text.literal("Toggles the community resource pack. (Disabled)")))
             .build()
         resourcePack?.active = false
         forceMod = ButtonWidget.builder(Text.literal("ADVANCED: Force enable mod features")) {
@@ -81,7 +81,7 @@ class Menu : Screen(Text.literal("SciFy Menu")) {
             MinecraftClient.getInstance().setScreen(Menu())
         }
             .dimensions(width / 2 - 100, height - 40, 200, 20)
-            .tooltip(Tooltip.of(Text.literal("Disables the requirement to be on Dungeonfy. This means the features work on every server. This is not recommended. (${if (modDisableOverride) "Enabled" else "Disabled"})")))
+            .tooltip(Tooltip.of(Text.literal("Disables the requirement to be on a Dungeonfy server. This means the features work on every server. This is not recommended. (${if (modDisableOverride) "Enabled" else "Disabled"})")))
             .build()
         addDrawableChild(dynamicBars)
         addDrawableChild(fishingNotif)
