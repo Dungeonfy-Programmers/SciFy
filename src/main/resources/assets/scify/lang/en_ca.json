@@ -1,0 +1,17 @@
+{
+  "scify.menu.enabled": " (Enabled)",
+  "scify.menu.disabled": " (Disabled)",
+  "scify.menu.title": "SciFy Menu, eh?",
+  "scify.menu.health.title": "Custom Health",
+  "scify.menu.health.description": "Custom health bar.",
+  "scify.menu.fish.title": "Fishing Notifications",
+  "scify.menu.fish.description": "Fishing Notifications",
+  "scify.menu.welcome.title": "Auto Welcome",
+  "scify.menu.welcome.description": "Automatically sends \"wb\" when a player joins.",
+  "scify.menu.watermark.title": "Show Watermark",
+  "scify.menu.watermark.description": "Enable/Disable the small text in the bottom right displaying the mod name.",
+  "scify.menu.resourcepack.title": "Toggle Resource Pack",
+  "scify.menu.resourcepack.description": "Toggles the community resource pack.",
+  "scify.menu.forcemod.title": "ADVANCED: Force enable mod features",
+  "scify.menu.forcemod.description": "Disables the requirement to be on a Dungeonfy server. This means the features work on every server. This is not recommended."
+}

@@ -8,13 +8,14 @@ import net.minecraft.client.gui.DrawContext
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.gui.tooltip.Tooltip
 import net.minecraft.client.gui.widget.ButtonWidget
+import net.minecraft.client.resource.language.I18n.translate
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 import java.awt.Color
 
 var modDisableOverride = false
 @Environment(EnvType.CLIENT)
-class Menu : Screen(Text.literal("SciFy Menu")) {
+class Menu : Screen(Text.translatable("scify.menu.title")) {
     private var dynamicBars: ButtonWidget? = null
     private var fishingNotif: ButtonWidget? = null
     private var watermark: ButtonWidget? = null
@@ -26,7 +27,7 @@ class Menu : Screen(Text.literal("SciFy Menu")) {
         super.render(context, mouseX, mouseY, delta)
         context.drawCenteredTextWithShadow(
             textRenderer,
-            Text.literal("SciFy Menu"),
+            Text.translatable("scify.menu.title"),
             width / 2,
             5,
             Color(255,0,255).rgb
@@ -37,51 +38,51 @@ class Menu : Screen(Text.literal("SciFy Menu")) {
     }
     public override fun init() {
 
-        dynamicBars = ButtonWidget.builder(Text.literal("Custom Health")) {
+        dynamicBars = ButtonWidget.builder(Text.translatable("scify.menu.health.title")) {
             toggleBars() // Call the function toggleBars() from the bars.kt module
             MinecraftClient.getInstance().setScreen(Menu())
         }
             .dimensions(width / 2 - 205, 84, 200, 20)
-            .tooltip(Tooltip.of(Text.literal("Custom health bar. (${if (barsToggle) "Enabled" else "Disabled"})")))
+            .tooltip(Tooltip.of(Text.literal(translate("scify.menu.health.description") + translate(if (barsToggle) "scify.menu.enabled" else "scify.menu.disabled"))))
             .build()
-        fishingNotif = ButtonWidget.builder(Text.literal("Fishing Notifications")) {
+        fishingNotif = ButtonWidget.builder(Text.translatable("scify.menu.fish.title")) {
             FishingNotif().toggleFishingNotif() // Call the function toggleFishingNotif() from the FishingNotif.kt module
             MinecraftClient.getInstance().setScreen(Menu())
         }
             .dimensions(width / 2 + 5, 84, 200, 20)
-            .tooltip(Tooltip.of(Text.literal("Fishing Notifications (${if (fishingToggle) "Enabled" else "Disabled"})")))
+            .tooltip(Tooltip.of(Text.literal(translate("scify.menu.fish.description") + translate(if (fishingToggle) "scify.menu.enabled" else "scify.menu.disabled"))))
             .build()
         fishingNotif?.active = false
-        watermark = ButtonWidget.builder(Text.literal("Show Watermark")) {
+        watermark = ButtonWidget.builder(Text.translatable("scify.menu.watermark.title")) {
             toggleWaterMark() // Call the function toggleWaterMark() from the Watermark.kt module
             MinecraftClient.getInstance().setScreen(Menu())
         }
             .dimensions(width / 2 - 205, 164, 200, 20)
-            .tooltip(Tooltip.of(Text.literal("Enable/Disable the small text in the bottom right displaying the mod name. (${if (watermarkToggle) "Enabled" else "Disabled"})")))
+            .tooltip(Tooltip.of(Text.literal(translate("scify.menu.watermark.description") + translate(if (watermarkToggle) "scify.menu.enabled" else "scify.menu.disabled"))))
             .build()
-        autoWelcome = ButtonWidget.builder(Text.literal("Auto Welcome Back")) {
+        autoWelcome = ButtonWidget.builder(Text.translatable("scify.menu.welcome.title")) {
             AutoWelcome().toggleAutoWelcome() // Call the function toggleAutoWelcome() from the AutoWelcome.kt module
             MinecraftClient.getInstance().setScreen(Menu())
         }
             .dimensions(width / 2 - 205, 124, 200, 20)
-            .tooltip(Tooltip.of(Text.literal("Automatically sends \"wb\" when a player joins. (${if (autoWelcomeToggle) "Enabled" else "Disabled"})")))
+            .tooltip(Tooltip.of(Text.literal(translate("scify.menu.welcome.description") + translate(if (autoWelcomeToggle) "scify.menu.enabled" else "scify.menu.disabled"))))
             .build()
         autoWelcome?.active = false
-        resourcePack = ButtonWidget.builder(Text.literal("Toggle Resource Pack")) {
+        resourcePack = ButtonWidget.builder(Text.translatable("scify.menu.resourcepack.title")) {
             // TODO: Implement Resource pack
             MinecraftClient.getInstance().setScreen(Menu())
         }
             .dimensions(width / 2 + 5, 124, 200, 20)
-            .tooltip(Tooltip.of(Text.literal("Toggles the community resource pack. (Disabled)")))
+            .tooltip(Tooltip.of(Text.literal(translate("scify.menu.resourcepack.description") + translate("scify.menu.disabled"))))
             .build()
         resourcePack?.active = false
-        forceMod = ButtonWidget.builder(Text.literal("ADVANCED: Force enable mod features")) {
+        forceMod = ButtonWidget.builder(Text.translatable("scify.menu.forcemod.title")) {
             modDisableOverride = !modDisableOverride
             println(modDisableOverride)
             MinecraftClient.getInstance().setScreen(Menu())
         }
             .dimensions(width / 2 - 100, height - 40, 200, 20)
-            .tooltip(Tooltip.of(Text.literal("Disables the requirement to be on a Dungeonfy server. This means the features work on every server. This is not recommended. (${if (modDisableOverride) "Enabled" else "Disabled"})")))
+            .tooltip(Tooltip.of(Text.literal(translate("scify.menu.forcemod.description") + translate(if (modDisableOverride) "scify.menu.enabled" else "scify.menu.disabled"))))
             .build()
         addDrawableChild(dynamicBars)
         addDrawableChild(fishingNotif)
