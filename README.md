@@ -8,7 +8,12 @@ SciFy was made when I (Chickenmanfy) thought it would be fun to learn how to mak
 I then remembered when one of my friends (BearCat865) suggested making a Dungeonfy mod, and here we are.
 
 ---
-# Roadmap
+## Features 
+- Hotkeys for useful commands (`/warp`, `/ec`, `/guide`)
+- Custom health bar
+
+
+## Roadmap
 _Currently in beta so expect bugs._
 - Right shift menu to enable and disable mods (100%)
 - Health & Food bars replaced with dynamic bar similar to EXP bar (100%)
@@ -20,4 +25,13 @@ _Currently in beta so expect bugs._
 - Implement Language Support
 
 
-See [here](UPDATE_TODO.md) for progress on updating to 1.21.8
+## Currently supported servers
+
+| Server | Supported | Features | IPs |
+| ------ | --------- | -------- | --- |
+| Dungeonfy | Yes | All | `localhost`, `dungeonfy.minehut.gg` |
+| Miningfy | Yes | All | `miningfy.minehut.gg` |
+| Minehut | Yes | All | `minehut.com` |
+| Joefy | No | None | N/A |
+| Roguefy | No | None | N/A |
+| Dungeonfy 2 | No | None | N/A |
