@@ -1,7 +1,6 @@
-package chickenmanfy.scify
+package chickenmanfy.scify.modules
 
 import net.minecraft.client.MinecraftClient
-//import chickenmanfy.scify.modules.Menu
 
 class Global {
   /*
@@ -21,9 +20,9 @@ class Global {
         return arrayOf(true, true)
       }
     }
-//    if (modDisableOverride) {
-//      return arrayOf(true, true)
-//    }
+    if (modDisableOverride) {
+      return arrayOf(true, true)
+    }
     return arrayOf(false, false)
   }
 }

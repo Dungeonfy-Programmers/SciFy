@@ -1,16 +1,22 @@
 package chickenmanfy.scify.modules
 
-import com.mojang.blaze3d.systems.RenderSystem
 import net.fabricmc.fabric.api.client.message.v1.ClientReceiveMessageEvents
-import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback
+import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElement
 import net.minecraft.client.MinecraftClient
+import net.minecraft.client.gl.RenderPipelines
 import net.minecraft.client.gui.DrawContext
 import net.minecraft.client.render.*
 import net.minecraft.util.Identifier
 import java.util.regex.Pattern
+import kotlin.math.roundToInt
 
 var barsToggle: Boolean = true
-class Bars {
+
+fun toggleBars() {
+    barsToggle = !barsToggle
+}
+
+class Bars: HudElement {
     private var mana = 0
     init {
         ClientReceiveMessageEvents.GAME.register { actionbar, _ ->
@@ -29,25 +35,25 @@ class Bars {
             // Final mana value
             if (lastSecondNumber != 0) {
                 val divided = lastSecondNumber.toFloat() / 20
-                val final = Math.round(lastFirstNumber.toFloat() / divided)
+                val final = (lastFirstNumber.toFloat() / divided).roundToInt()
                 mana = if (final <= 20) final else 20
             }
 
         }
     }
 
-    fun toggleBars() {
-        barsToggle = !barsToggle
-    }
+    // old bar implementation
+    // minecraft is the stupidest thing to ever exist
+    // stop touching the rendering implementation
+    // please
 
-    fun bars() {
+    /*fun bars() {
         val width = 98f
         val height = 18f
         val xHealth = 5f
         val yHealth = 5f
         val xReality = 5f
         val yReality = 10f + height
-        HudRenderCallback.EVENT.register(HudRenderCallback { drawContext: DrawContext?, _: Float ->
             val tessellator: Tessellator = Tessellator.getInstance()
             val buffer: BufferBuilder = tessellator.buffer
             val positionMatrix = drawContext?.matrices?.peek()?.positionMatrix
@@ -80,6 +86,23 @@ class Bars {
                     tessellator.draw()
                 }
             }
-        })
+    }*/
+
+    override fun render(context: DrawContext?, tickCounter: RenderTickCounter?) {
+        if (!Global().ipCheck()[0] || !watermarkToggle) {
+            return
+        } // make sure this is supposed to render
+
+        val width = 98
+        val height = 18
+        val xHealth = 5
+        val yHealth = 5
+        //val xReality = 5
+        //val yReality = 10 + height
+
+        val maxHealthDivided = MinecraftClient.getInstance().player?.maxHealth?.div(20)?.toInt()
+        val health = if (MinecraftClient.getInstance().player?.health?.toInt()?.div(maxHealthDivided!!)!! <= 20) MinecraftClient.getInstance().player?.health?.toInt()?.div(maxHealthDivided) else 20
+        val healthbar = Identifier.of("scify", "healthmana/health/health_${health}.png")
+        context?.drawTexture(RenderPipelines.GUI_TEXTURED, healthbar, xHealth, yHealth, 0f, 0f, width, height, width, height)
     }
 }

@@ -1,8 +1,9 @@
 package chickenmanfy.scify
 
 import chickenmanfy.scify.modules.* // woo fancy import all modules
-import chickenmanfy.scify.Global
 import net.fabricmc.api.ClientModInitializer
+import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry
+import net.minecraft.util.Identifier
 
 
 object SciFyClient : ClientModInitializer {
@@ -12,7 +13,7 @@ object SciFyClient : ClientModInitializer {
         Hotkey().hotkeys()
         AutoWelcome().autoWelcome()
         FishingNotif().fishingNotif()
-        //Bars().bars()
-        //Watermark().watermark()
+        HudElementRegistry.addLast(Identifier.of("scify", "bars"), Bars())
+        HudElementRegistry.addLast(Identifier.of("scify", "watermark"), Watermark())
     }
 }

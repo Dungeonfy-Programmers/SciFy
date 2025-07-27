@@ -8,12 +8,11 @@ import net.minecraft.client.gui.DrawContext
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.gui.tooltip.Tooltip
 import net.minecraft.client.gui.widget.ButtonWidget
-import net.minecraft.client.render.RenderLayer
-import net.minecraft.client.render.TexturedRenderLayers
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
+import java.awt.Color
 
-public var modDisableOverride = false
+var modDisableOverride = false
 @Environment(EnvType.CLIENT)
 class Menu : Screen(Text.literal("SciFy Menu")) {
     private var dynamicBars: ButtonWidget? = null
@@ -30,23 +29,21 @@ class Menu : Screen(Text.literal("SciFy Menu")) {
             Text.literal("SciFy Menu"),
             width / 2,
             5,
-            0xff00ff
+            Color(255,0,255).rgb
         )
 
         val texture = Identifier.of("scify", "scify.png")
-        context.drawGuiTexture(RenderPipelines.GUI_TEXTURED, texture, width / 2 - 32, 20, 0, 0, 64, 64, 64, 64)
+        context.drawTexture(RenderPipelines.GUI_TEXTURED, texture, width / 2 - 32, 20, 0F, 0F, 64, 64, 64, 64)
     }
     public override fun init() {
 
         dynamicBars = ButtonWidget.builder(Text.literal("Custom Health/Mana")) {
-            //Bars().toggleBars() // Call the function toggleBars() from the bars.kt module
+            toggleBars() // Call the function toggleBars() from the bars.kt module
             MinecraftClient.getInstance().setScreen(Menu())
         }
             .dimensions(width / 2 - 205, 84, 200, 20)
-            //.tooltip(Tooltip.of(Text.literal("Custom Health and Mana bars. (${if (barsToggle) "Enabled" else "Disabled"})")))
-            .tooltip(Tooltip.of(Text.literal("Custom Health and Mana bars. (Disabled)")))
+            .tooltip(Tooltip.of(Text.literal("Custom Health and Mana bars. (${if (barsToggle) "Enabled" else "Disabled"})")))
             .build()
-        dynamicBars?.active = false
         fishingNotif = ButtonWidget.builder(Text.literal("Fishing Notifications")) {
             FishingNotif().toggleFishingNotif() // Call the function toggleFishingNotif() from the FishingNotif.kt module
             MinecraftClient.getInstance().setScreen(Menu())
@@ -56,14 +53,12 @@ class Menu : Screen(Text.literal("SciFy Menu")) {
             .build()
         fishingNotif?.active = false
         watermark = ButtonWidget.builder(Text.literal("Show Watermark")) {
-            //Watermark().toggleWaterMark() // Call the function toggleWaterMark() from the Watermark.kt module
+            toggleWaterMark() // Call the function toggleWaterMark() from the Watermark.kt module
             MinecraftClient.getInstance().setScreen(Menu())
         }
             .dimensions(width / 2 - 205, 164, 200, 20)
-            //.tooltip(Tooltip.of(Text.literal("Enable/Disable the small text in the bottom right displaying the mod name. (${if (watermarkToggle) "Enabled" else "Disabled"})")))
-            .tooltip(Tooltip.of(Text.literal("Enable/Disable the small text in the bottom right displaying the mod name. (Disabled)")))
+            .tooltip(Tooltip.of(Text.literal("Enable/Disable the small text in the bottom right displaying the mod name. (${if (watermarkToggle) "Enabled" else "Disabled"})")))
             .build()
-        watermark?.active = false
         autoWelcome = ButtonWidget.builder(Text.literal("Auto Welcome Back")) {
             AutoWelcome().toggleAutoWelcome() // Call the function toggleAutoWelcome() from the AutoWelcome.kt module
             MinecraftClient.getInstance().setScreen(Menu())

@@ -15,8 +15,8 @@ _Currently in beta so expect bugs._
 - Auto-Welcome (20%) **WARNING: This feature may prove to be annoying, in which case we will remove it.**
 - Fishing notifications (0%)
 - Macros (100%)
-- Miningfy Initial Support (0%)
-- Update to latest game version (70%)
+- Miningfy Initial Support (100%)
+- Update to latest game version (100%)
 - Implement Language Support
 
 

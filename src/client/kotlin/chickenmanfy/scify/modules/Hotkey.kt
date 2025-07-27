@@ -7,8 +7,6 @@ import net.minecraft.client.MinecraftClient
 import net.minecraft.client.option.KeyBinding
 import net.minecraft.client.util.InputUtil
 import org.lwjgl.glfw.GLFW
-import chickenmanfy.scify.Global
-import net.minecraft.text.Text
 
 
 class Hotkey {

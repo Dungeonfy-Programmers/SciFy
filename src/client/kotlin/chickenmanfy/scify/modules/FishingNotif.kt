@@ -1,8 +1,5 @@
 package chickenmanfy.scify.modules
 
-import net.minecraft.client.MinecraftClient
-import chickenmanfy.scify.Global
-
 var fishingToggle: Boolean = false
 class FishingNotif {
     // Fishing Notification Toggle
