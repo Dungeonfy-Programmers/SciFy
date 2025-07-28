@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElement
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.DrawContext
 import net.minecraft.client.render.RenderTickCounter
+import net.minecraft.component.DataComponentTypes
 import net.minecraft.text.Text
 import java.awt.Color
 
@@ -30,7 +31,7 @@ class Cooldown: HudElement {
         if (!Global().ipCheck()[0] || !cooldownToggle || !MinecraftClient.getInstance().player?.itemCooldownManager?.isCoolingDown(MinecraftClient.getInstance().player?.mainHandStack)!!) { return }
         val client = MinecraftClient.getInstance()
 
-        val cooldown = MinecraftClient.getInstance().player?.itemCooldownManager?.getCooldownProgress(MinecraftClient.getInstance().player?.mainHandStack, 1F).toString()
+        val cooldown = String.format("%.1f",MinecraftClient.getInstance().player?.itemCooldownManager?.getCooldownProgress(MinecraftClient.getInstance().player?.mainHandStack, 1F)?.times(MinecraftClient.getInstance().player?.mainHandStack?.components?.get(DataComponentTypes.USE_COOLDOWN)?.seconds?.toFloat()!!))
 
         context?.drawTextWithShadow(client.textRenderer, cooldown, 5, client.window.scaledHeight - client.textRenderer.fontHeight - 5, Color(255,0,255).rgb)
     }
