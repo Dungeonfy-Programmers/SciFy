@@ -21,10 +21,14 @@ _Currently in beta so expect bugs._
 - Health & Food bars replaced with dynamic bar similar to EXP bar (100%)
 - Auto-Welcome (100%) **WARNING: This feature may prove to be annoying, in which case we will remove it.**
 - Cooldown Tracker (100%)
+- Better Cooldown Tracker (0%)
 - Macros (100%)
 - Miningfy Initial Support (100%)
 - Update to latest game version (100%)
 - Implement Language Support (100%)
+- Resource Pack Integration (0%)
+- Save changes in menu across sessions (0%)
+- More Advanced Settings (0%)
 
 
 ## Currently supported servers
