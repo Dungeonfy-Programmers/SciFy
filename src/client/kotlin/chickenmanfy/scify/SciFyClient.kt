@@ -12,7 +12,7 @@ object SciFyClient : ClientModInitializer {
 
         // Run the Modules
         Hotkey().hotkeys()
-        FishingNotif().fishingNotif()
+        HudElementRegistry.addLast(Identifier.of("scify", "cooldown"), Cooldown())
         ClientReceiveMessageEvents.GAME.register(Identifier.of("scify", "autowelcome"), AutoWelcome())
         HudElementRegistry.addLast(Identifier.of("scify", "bars"), Bars())
         HudElementRegistry.addLast(Identifier.of("scify", "watermark"), Watermark())

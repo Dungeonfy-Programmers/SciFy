@@ -45,14 +45,13 @@ class Menu : Screen(Text.translatable("scify.menu.title")) {
             .dimensions(width / 2 - 205, 84, 200, 20)
             .tooltip(Tooltip.of(Text.literal(translate("scify.menu.health.description") + translate(if (barsToggle) "scify.menu.enabled" else "scify.menu.disabled"))))
             .build()
-        fishingNotif = ButtonWidget.builder(Text.translatable("scify.menu.fish.title")) {
-            FishingNotif().toggleFishingNotif() // Call the function toggleFishingNotif() from the FishingNotif.kt module
+        fishingNotif = ButtonWidget.builder(Text.translatable("scify.menu.cooldown.title")) {
+            Cooldown().toggleCooldown() // Call the function toggleCooldown() from the Cooldown.kt module
             MinecraftClient.getInstance().setScreen(Menu())
         }
             .dimensions(width / 2 + 5, 84, 200, 20)
-            .tooltip(Tooltip.of(Text.literal(translate("scify.menu.fish.description") + translate(if (fishingToggle) "scify.menu.enabled" else "scify.menu.disabled"))))
+            .tooltip(Tooltip.of(Text.literal(translate("scify.menu.cooldown.description") + translate(if (cooldownToggle) "scify.menu.enabled" else "scify.menu.disabled"))))
             .build()
-        fishingNotif?.active = false
         watermark = ButtonWidget.builder(Text.translatable("scify.menu.watermark.title")) {
             toggleWaterMark() // Call the function toggleWaterMark() from the Watermark.kt module
             MinecraftClient.getInstance().setScreen(Menu())

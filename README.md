@@ -12,6 +12,7 @@ I then remembered when one of my friends (BearCat865) suggested making a Dungeon
 - Hotkeys for useful commands (`/warp`, `/ec`, `/guide`)
 - Custom health bar
 - Auto-Welcome
+- Cooldown Tracker
 
 
 ## Roadmap
@@ -19,7 +20,7 @@ _Currently in beta so expect bugs._
 - Right shift menu to enable and disable mods (100%)
 - Health & Food bars replaced with dynamic bar similar to EXP bar (100%)
 - Auto-Welcome (100%) **WARNING: This feature may prove to be annoying, in which case we will remove it.**
-- Fishing notifications (0%)
+- Cooldown Tracker (100%)
 - Macros (100%)
 - Miningfy Initial Support (100%)
 - Update to latest game version (100%)
@@ -28,11 +29,12 @@ _Currently in beta so expect bugs._
 
 ## Currently supported servers
 
-| Server | Supported | Features | IPs |
-| ------ | --------- | -------- | --- |
-| Dungeonfy | Yes | All | `localhost`, `dungeonfy.minehut.gg` |
-| Miningfy | Yes | All | `miningfy.minehut.gg` |
-| Minehut | Yes | All | `minehut.com` |
-| Joefy | No | None | N/A |
-| Roguefy | No | None | N/A |
-| Dungeonfy 2 | No | None | N/A |
+| Server      | Supported | Features | IPs                                 |
+| ----------- | --------- | -------- | ----------------------------------- |
+| Dungeonfy   | Yes       | All      | `localhost`, `dungeonfy.minehut.gg` |
+| Miningfy    | Yes       | Some*    | `miningfy.minehut.gg`               |
+| Minehut     | Yes       | Some*    | `minehut.com`                       |
+| Joefy       | No        | None     | N/A                                 |
+| Roguefy     | No        | None     | N/A                                 |
+| Dungeonfy 2 | No        | None     | N/A                                 |
+> *Some command hotkeys may not work
