@@ -16,8 +16,8 @@
 	],
 	"contact": {
 		"homepage": "https://modrinth.com/project/scify",
-		"sources": "https://github.com/chickenmanfy/scify",
-		"issues": "https://github.com/chickenmanfy/scify/issues"
+		"sources": "https://github.com/Dungeonfy-Programmers/SciFy",
+		"issues": "https://github.com/Dungeonfy-Programmers/SciFy/issues"
 	},
 	"license": "GPL-3",
 	"icon": "assets/scify/icon.png",
