@@ -8,14 +8,14 @@ class Global {
    * [is_dungeonfy: Boolean, is_dungeonfy_2: Boolean]*/
   fun ipCheck(): Array<Boolean> {
     // TODO: Dynamic update in case of ip list change
-    var dfy1_ips = arrayOf("dungeonfy.minehut.gg", "minehut.com", "localhost", "51.222.121.148:25599", "miningfy.minehut.gg")
-    var dfy2_ips = arrayOf("no dungeonfy 2 :(")
-    for (ip in dfy1_ips) {
+    val dfy1Ips = arrayOf("dungeonfy.minehut.gg", "minehut.com", "localhost", "51.222.121.148:25599", "miningfy.minehut.gg")
+    val dfy2Ips = arrayOf("no dungeonfy 2 :(")
+    for (ip in dfy1Ips) {
       if (ip == MinecraftClient.getInstance().networkHandler?.serverInfo?.address) {
         return arrayOf(true, false)
       }
     }
-    for (ip in dfy2_ips) {
+    for (ip in dfy2Ips) {
       if (ip == MinecraftClient.getInstance().networkHandler?.serverInfo?.address) {
         return arrayOf(true, true)
       }

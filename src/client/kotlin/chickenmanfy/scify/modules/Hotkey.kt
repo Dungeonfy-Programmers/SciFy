@@ -57,8 +57,8 @@ class Hotkey {
             while (enderchest.wasPressed()) {
                 if (Global().ipCheck()[0]) {
                     MinecraftClient.getInstance().networkHandler!!.sendChatCommand("ec")
-                    println(ClientReceiveMessageEvents.CHAT)
                 }
+
             }
             while (guide.wasPressed()) {
                 if (Global().ipCheck()[1]) {

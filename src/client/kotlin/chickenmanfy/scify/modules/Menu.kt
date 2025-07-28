@@ -61,13 +61,12 @@ class Menu : Screen(Text.translatable("scify.menu.title")) {
             .tooltip(Tooltip.of(Text.literal(translate("scify.menu.watermark.description") + translate(if (watermarkToggle) "scify.menu.enabled" else "scify.menu.disabled"))))
             .build()
         autoWelcome = ButtonWidget.builder(Text.translatable("scify.menu.welcome.title")) {
-            AutoWelcome().toggleAutoWelcome() // Call the function toggleAutoWelcome() from the AutoWelcome.kt module
+            toggleAutoWelcome() // Call the function toggleAutoWelcome() from the AutoWelcome.kt module
             MinecraftClient.getInstance().setScreen(Menu())
         }
             .dimensions(width / 2 - 205, 124, 200, 20)
             .tooltip(Tooltip.of(Text.literal(translate("scify.menu.welcome.description") + translate(if (autoWelcomeToggle) "scify.menu.enabled" else "scify.menu.disabled"))))
             .build()
-        autoWelcome?.active = false
         resourcePack = ButtonWidget.builder(Text.translatable("scify.menu.resourcepack.title")) {
             // TODO: Implement Resource pack
             MinecraftClient.getInstance().setScreen(Menu())
