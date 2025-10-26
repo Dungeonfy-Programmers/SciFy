@@ -74,12 +74,13 @@ class Cooldown: HudElement {
                     val identifier = client.player!!.inventory.getStack(i).registryEntry.idAsString.split(":")
                     context?.drawTexture(RenderPipelines.GUI_TEXTURED, Identifier.of(identifier[0], "textures/item/" + identifier[1] + ".png"), 0, i*16 + 28,
                         0F, 0F, 16, 16, 16, 16)
-                    context?.drawTextWithShadow(
+                    context?.drawText(
                         client.textRenderer,
                         client.player!!.inventory.getStack(i).name.string + ": " + cooldown + "s",
                         18,
                         i*16 + 32,
-                        Color(100, 100, 100).rgb
+                        Color(100, 100, 100).rgb,
+                        false
                     )
                 }
             }
