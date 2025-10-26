@@ -32,9 +32,9 @@ object SciFyClient : ClientModInitializer {
 
         // Run the Modules
         Hotkey().hotkeys()
-        HudElementRegistry.addFirst(Identifier.of("scify", "cooldown"), Cooldown())
+        HudElementRegistry.attachElementAfter(Identifier.of("minecraft", "hotbar"), Identifier.of("scify", "cooldown"), Cooldown())
         ClientReceiveMessageEvents.GAME.register(Identifier.of("scify", "autowelcome"), AutoWelcome())
-        HudElementRegistry.addFirst(Identifier.of("scify", "bars"), Bars())
+        HudElementRegistry.addLast(Identifier.of("scify", "bars"), Bars())
         HudElementRegistry.addFirst(Identifier.of("scify", "watermark"), Watermark())
     }
 }
