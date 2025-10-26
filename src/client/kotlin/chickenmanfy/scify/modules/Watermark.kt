@@ -1,15 +1,32 @@
 package chickenmanfy.scify.modules
 
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElement
+import net.fabricmc.loader.api.FabricLoader
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.DrawContext
 import net.minecraft.client.render.RenderTickCounter
+import org.yaml.snakeyaml.Yaml
 import java.awt.Color
+import java.io.FileReader
+import java.io.FileWriter
 
-var watermarkToggle = true
+// Load watermark value
+val watermarkYaml = Yaml()
+val watermarkFileReader = FileReader(FabricLoader.getInstance().configDir.resolve("scify/config.yaml").toFile())
+val watermarkConfig: HashMap<String, Boolean> = watermarkYaml.load(watermarkFileReader)
+var watermarkToggle: Boolean? = watermarkConfig.get("watermarkEnabled")
 
-fun toggleWaterMark() {
-    watermarkToggle = !watermarkToggle
+// Saving was a ridiculous idea
+fun saveWatermarkData() {
+    val yaml = Yaml()
+    watermarkToggle?.let { config["watermarkEnabled"] = it }
+    val fileWriter = FileWriter(FabricLoader.getInstance().configDir.resolve("scify/config.yaml").toFile())
+    yaml.dump(config, fileWriter)
+}
+
+fun toggleWatermark() {
+    watermarkToggle = !watermarkToggle!!
+    saveWatermarkData()
 }
 
 class Watermark: HudElement {
@@ -24,7 +41,7 @@ class Watermark: HudElement {
         }
     })*/
     override fun render(context: DrawContext?, tickCounter: RenderTickCounter?) {
-        if (!Global().ipCheck()[0] || !watermarkToggle) { return } // make sure this is supposed to render
+        if (!Global().ipCheck()[0] || !watermarkToggle!!) { return } // make sure this is supposed to render
 
         val client = MinecraftClient.getInstance()
         val scifyVersion = "0.3.0"

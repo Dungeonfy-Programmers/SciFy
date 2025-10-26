@@ -43,28 +43,28 @@ class Menu : Screen(Text.translatable("scify.menu.title")) {
             MinecraftClient.getInstance().setScreen(Menu())
         }
             .dimensions(width / 2 - 205, 84, 200, 20)
-            .tooltip(Tooltip.of(Text.literal(translate("scify.menu.health.description") + translate(if (barsToggle) "scify.menu.enabled" else "scify.menu.disabled"))))
+            .tooltip(Tooltip.of(Text.literal(translate("scify.menu.health.description") + translate(if (barsToggle == true) "scify.menu.enabled" else "scify.menu.disabled"))))
             .build()
         fishingNotif = ButtonWidget.builder(Text.translatable("scify.menu.cooldown.title")) {
-            Cooldown().toggleCooldown() // Call the function toggleCooldown() from the Cooldown.kt module
+            toggleCooldown() // Call the function toggleCooldown() from the Cooldown.kt module
             MinecraftClient.getInstance().setScreen(Menu())
         }
             .dimensions(width / 2 + 5, 84, 200, 20)
-            .tooltip(Tooltip.of(Text.literal(translate("scify.menu.cooldown.description") + translate(if (cooldownToggle) "scify.menu.enabled" else "scify.menu.disabled"))))
+            .tooltip(Tooltip.of(Text.literal(translate("scify.menu.cooldown.description") + translate(if (cooldownToggle == true) "scify.menu.enabled" else "scify.menu.disabled"))))
             .build()
         watermark = ButtonWidget.builder(Text.translatable("scify.menu.watermark.title")) {
-            toggleWaterMark() // Call the function toggleWaterMark() from the Watermark.kt module
+            toggleWatermark() // Call the function toggleWaterMark() from the Watermark.kt module
             MinecraftClient.getInstance().setScreen(Menu())
         }
             .dimensions(width / 2 - 205, 164, 200, 20)
-            .tooltip(Tooltip.of(Text.literal(translate("scify.menu.watermark.description") + translate(if (watermarkToggle) "scify.menu.enabled" else "scify.menu.disabled"))))
+            .tooltip(Tooltip.of(Text.literal(translate("scify.menu.watermark.description") + translate(if (watermarkToggle == true) "scify.menu.enabled" else "scify.menu.disabled"))))
             .build()
         autoWelcome = ButtonWidget.builder(Text.translatable("scify.menu.welcome.title")) {
             toggleAutoWelcome() // Call the function toggleAutoWelcome() from the AutoWelcome.kt module
             MinecraftClient.getInstance().setScreen(Menu())
         }
             .dimensions(width / 2 - 205, 124, 200, 20)
-            .tooltip(Tooltip.of(Text.literal(translate("scify.menu.welcome.description") + translate(if (autoWelcomeToggle) "scify.menu.enabled" else "scify.menu.disabled"))))
+            .tooltip(Tooltip.of(Text.literal(translate("scify.menu.welcome.description") + translate(if (autoWelcomeToggle == true) "scify.menu.enabled" else "scify.menu.disabled"))))
             .build()
         resourcePack = ButtonWidget.builder(Text.translatable("scify.menu.resourcepack.title")) {
             // TODO: Implement Resource pack
@@ -74,9 +74,8 @@ class Menu : Screen(Text.translatable("scify.menu.title")) {
             .tooltip(Tooltip.of(Text.literal(translate("scify.menu.resourcepack.description") + translate("scify.menu.disabled"))))
             .build()
         resourcePack?.active = false
-        forceMod = ButtonWidget.builder(Text.translatable("scify.menu.forcemod.title")) {
-            modDisableOverride = !modDisableOverride
-            println(modDisableOverride)
+        forceMod = ButtonWidget.builder(Text.literal(translate("scify.menu.forcemod.title") + if (modDisableOverride) " §c§l(!)" else "")) {
+            modDisableOverride = !modDisableOverride // doesn't save
             MinecraftClient.getInstance().setScreen(Menu())
         }
             .dimensions(width / 2 - 100, height - 40, 200, 20)

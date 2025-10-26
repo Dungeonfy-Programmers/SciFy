@@ -2,18 +2,35 @@ package chickenmanfy.scify.modules
 
 import net.fabricmc.fabric.api.client.message.v1.ClientReceiveMessageEvents
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElement
+import net.fabricmc.loader.api.FabricLoader
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gl.RenderPipelines
 import net.minecraft.client.gui.DrawContext
 import net.minecraft.client.render.*
 import net.minecraft.util.Identifier
+import org.yaml.snakeyaml.Yaml
+import java.io.FileReader
+import java.io.FileWriter
 import java.util.regex.Pattern
 import kotlin.math.roundToInt
 
-var barsToggle: Boolean = true
+// Load bars value
+val barsYaml = Yaml()
+val barsFileReader = FileReader(FabricLoader.getInstance().configDir.resolve("scify/config.yaml").toFile())
+val barsConfig: HashMap<String, Boolean> = barsYaml.load(barsFileReader)
+var barsToggle: Boolean? = barsConfig.get("barsEnabled")
+
+// Saving was a ridiculous idea
+fun saveBarsData() {
+    val yaml = Yaml()
+    barsToggle?.let { config["barsEnabled"] = it }
+    val fileWriter = FileWriter(FabricLoader.getInstance().configDir.resolve("scify/config.yaml").toFile())
+    yaml.dump(config, fileWriter)
+}
 
 fun toggleBars() {
-    barsToggle = !barsToggle
+    barsToggle = !barsToggle!!
+    saveBarsData()
 }
 
 class Bars: HudElement {
@@ -89,7 +106,7 @@ class Bars: HudElement {
     }*/
 
     override fun render(context: DrawContext?, tickCounter: RenderTickCounter?) {
-        if (!Global().ipCheck()[0] || !barsToggle) { return } // make sure this is supposed to render
+        if (!Global().ipCheck()[0] || !barsToggle!!) { return } // make sure this is supposed to render
 
         val width = 98
         val height = 18
