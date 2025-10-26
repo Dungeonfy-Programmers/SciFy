@@ -14,7 +14,7 @@ base {
 }
 
 repositories {
-
+	maven { url 'https://maven.wispforest.io/releases/' }
 }
 
 loom {

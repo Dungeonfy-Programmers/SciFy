@@ -13,5 +13,6 @@
   "scify.menu.resourcepack.title": "Toggle Resource Pack",
   "scify.menu.resourcepack.description": "Toggles the community resource pack.",
   "scify.menu.forcemod.title": "ADVANCED: Force enable mod features",
-  "scify.menu.forcemod.description": "Disables the requirement to be on a Dungeonfy server. This means the features work on every server. This is not recommended."
+  "scify.menu.forcemod.description": "Disables the requirement to be on a Dungeonfy server. This means the features work on every server. This is not recommended.",
+  "key.category.scify.keybind": "SciFy"
 }

@@ -24,21 +24,28 @@ _Currently in beta so expect bugs._
 - Better Cooldown Tracker (0%)
 - Macros (100%)
 - Miningfy Initial Support (100%)
-- Update to latest game version (100%)
 - Implement Language Support (100%)
 - Resource Pack Integration (0%)
 - Save changes in menu across sessions (0%)
 - More Advanced Settings (0%)
+- Migrate to Java (0%)
+- [Expand Scope to Other Servers (0%)](#the-future-of-scify)
 
 
 ## Currently supported servers
 
-| Server      | Supported | Features | IPs                                 |
-| ----------- | --------- | -------- | ----------------------------------- |
+| Server      | Supported | Features | Ips                                 |
+|-------------|-----------|----------|-------------------------------------|
 | Dungeonfy   | Yes       | All      | `localhost`, `dungeonfy.minehut.gg` |
 | Miningfy    | Yes       | Some*    | `miningfy.minehut.gg`               |
 | Minehut     | Yes       | Some*    | `minehut.com`                       |
 | Joefy       | No        | None     | N/A                                 |
 | Roguefy     | No        | None     | N/A                                 |
 | Dungeonfy 2 | No        | None     | N/A                                 |
+
+
+
 > *Some command hotkeys may not work
+
+## The Future of SciFy
+SciFy was originally borne out of a "why not?" question in relation to my favourite Minecraft server, Dungeonfy. ("If Skyblock can have client mods, why can't Dungeonfy?") After release, it saw little usage as it had a bunch of annoying bugs that meant it wasn't particularly helpful to anyone. Before I could iron out these kinks, Dungeonfy got shut down. Now I have a useless mod. What do I do with it? Well, my plans are as follows: **make a general purpose Minecraft RPG mod.** We'll see how this goes, but I'd like a mod that can add helpful features on Hypixel Skyblock and Wynncraft, as well as any others you can think of.
