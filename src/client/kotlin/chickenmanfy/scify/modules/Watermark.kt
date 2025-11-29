@@ -12,7 +12,7 @@ import java.io.FileWriter
 
 // Load watermark value
 val watermarkYaml = Yaml()
-val watermarkFileReader = FileReader(FabricLoader.getInstance().configDir.resolve("scify/config.yaml").toFile())
+val watermarkFileReader = FileReader(FabricLoader.getInstance().configDir.resolve("scify-config.yaml").toFile())
 val watermarkConfig: HashMap<String, Boolean> = watermarkYaml.load(watermarkFileReader)
 var watermarkToggle: Boolean? = watermarkConfig.get("watermarkEnabled")
 
@@ -20,7 +20,7 @@ var watermarkToggle: Boolean? = watermarkConfig.get("watermarkEnabled")
 fun saveWatermarkData() {
     val yaml = Yaml()
     watermarkToggle?.let { config["watermarkEnabled"] = it }
-    val fileWriter = FileWriter(FabricLoader.getInstance().configDir.resolve("scify/config.yaml").toFile())
+    val fileWriter = FileWriter(FabricLoader.getInstance().configDir.resolve("scify-config.yaml").toFile())
     yaml.dump(config, fileWriter)
 }
 

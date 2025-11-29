@@ -18,7 +18,7 @@ var autoWelcomeToggle: Boolean? = config.get("autoWelcomeEnabled")
 fun saveAutoWelcomeData() {
     val yaml = Yaml()
     autoWelcomeToggle?.let { config["autoWelcomeEnabled"] = it }
-    val fileWriter = FileWriter(FabricLoader.getInstance().configDir.resolve("scify/config.yaml").toFile())
+    val fileWriter = FileWriter(FabricLoader.getInstance().configDir.resolve("scify-config.yaml").toFile())
     yaml.dump(config, fileWriter)
 }
 

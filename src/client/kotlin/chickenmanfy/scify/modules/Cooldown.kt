@@ -16,7 +16,7 @@ import java.io.FileWriter
 
 // Load cooldown value
 val cooldownYaml = Yaml()
-val cooldownFileReader = FileReader(FabricLoader.getInstance().configDir.resolve("scify/config.yaml").toFile())
+val cooldownFileReader = FileReader(FabricLoader.getInstance().configDir.resolve("scify-config.yaml").toFile())
 val cooldownConfig: HashMap<String, Boolean> = cooldownYaml.load(cooldownFileReader)
 var cooldownToggle: Boolean? = cooldownConfig.get("cooldownTimerEnabled")
 
@@ -24,7 +24,7 @@ var cooldownToggle: Boolean? = cooldownConfig.get("cooldownTimerEnabled")
 fun saveCooldownData() {
     val yaml = Yaml()
     cooldownToggle?.let { config["cooldownTimerEnabled"] = it }
-    val fileWriter = FileWriter(FabricLoader.getInstance().configDir.resolve("scify/config.yaml").toFile())
+    val fileWriter = FileWriter(FabricLoader.getInstance().configDir.resolve("scify-config.yaml").toFile())
     yaml.dump(config, fileWriter)
 }
 

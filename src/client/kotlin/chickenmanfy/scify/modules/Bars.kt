@@ -16,7 +16,7 @@ import kotlin.math.roundToInt
 
 // Load bars value
 val barsYaml = Yaml()
-val barsFileReader = FileReader(FabricLoader.getInstance().configDir.resolve("scify/config.yaml").toFile())
+val barsFileReader = FileReader(FabricLoader.getInstance().configDir.resolve("scify-config.yaml").toFile())
 val barsConfig: HashMap<String, Boolean> = barsYaml.load(barsFileReader)
 var barsToggle: Boolean? = barsConfig.get("barsEnabled")
 
@@ -24,7 +24,7 @@ var barsToggle: Boolean? = barsConfig.get("barsEnabled")
 fun saveBarsData() {
     val yaml = Yaml()
     barsToggle?.let { config["barsEnabled"] = it }
-    val fileWriter = FileWriter(FabricLoader.getInstance().configDir.resolve("scify/config.yaml").toFile())
+    val fileWriter = FileWriter(FabricLoader.getInstance().configDir.resolve("scify-config.yaml").toFile())
     yaml.dump(config, fileWriter)
 }
 

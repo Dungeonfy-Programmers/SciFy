@@ -34,7 +34,10 @@
 				"value": "chickenmanfy.scify.SciFyClient",
 				"adapter": "kotlin"
 			}
-		]
+		],
+      "modmenu": [
+        "chickenmanfy.scify.ModMenuEntry"
+      ]
 	},
 	"depends": {
 		"fabricloader": ">=0.17.3",
