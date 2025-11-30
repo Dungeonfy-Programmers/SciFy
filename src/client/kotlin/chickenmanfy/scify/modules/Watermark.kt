@@ -44,7 +44,7 @@ class Watermark: HudElement {
         if (!Global().ipCheck()[0] || !watermarkToggle!!) { return } // make sure this is supposed to render
 
         val client = MinecraftClient.getInstance()
-        val scifyVersion = "0.4.0"
+        val scifyVersion = "0.4.1"
         context?.drawTextWithShadow(client.textRenderer, "§nSciFy v${scifyVersion}",client.window.scaledWidth - client.textRenderer.getWidth("SciFy v${scifyVersion}") - 5, client.window.scaledHeight - client.textRenderer.fontHeight - 5, Color(255,0,255).rgb)
     }
 }

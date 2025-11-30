@@ -10,7 +10,7 @@ import java.io.FileWriter
 
 // Load auto welcome value
 val yaml = Yaml()
-val fileReader = FileReader(FabricLoader.getInstance().configDir.resolve("scify/config.yaml").toFile())
+val fileReader = FileReader(FabricLoader.getInstance().configDir.resolve("scify-config.yaml").toFile())
 val config: HashMap<String, Boolean> = yaml.load(fileReader)
 var autoWelcomeToggle: Boolean? = config.get("autoWelcomeEnabled")
 
