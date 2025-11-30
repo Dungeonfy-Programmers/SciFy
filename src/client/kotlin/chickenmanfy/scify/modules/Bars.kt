@@ -106,7 +106,7 @@ class Bars: HudElement {
     }*/
 
     override fun render(context: DrawContext?, tickCounter: RenderTickCounter?) {
-        if (!Global().ipCheck()[0] || !barsToggle!!) { return } // make sure this is supposed to render
+        if (!barsToggle!!) { return } // make sure this is supposed to render
 
         val width = 98
         val height = 18

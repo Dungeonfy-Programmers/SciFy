@@ -74,18 +74,10 @@ class Menu : Screen(Text.translatable("scify.menu.title")) {
             .tooltip(Tooltip.of(Text.literal(translate("scify.menu.resourcepack.description") + translate("scify.menu.disabled"))))
             .build()
         resourcePack?.active = false
-        forceMod = ButtonWidget.builder(Text.literal(translate("scify.menu.forcemod.title") + if (modDisableOverride) " §c§l(!)" else "")) {
-            modDisableOverride = !modDisableOverride // doesn't save
-            MinecraftClient.getInstance().setScreen(Menu())
-        }
-            .dimensions(width / 2 - 100, height - 40, 200, 20)
-            .tooltip(Tooltip.of(Text.literal(translate("scify.menu.forcemod.description") + translate(if (modDisableOverride) "scify.menu.enabled" else "scify.menu.disabled"))))
-            .build()
         addDrawableChild(dynamicBars)
         addDrawableChild(fishingNotif)
         addDrawableChild(watermark)
         addDrawableChild(autoWelcome)
         addDrawableChild(resourcePack)
-        addDrawableChild(forceMod)
     }
 }

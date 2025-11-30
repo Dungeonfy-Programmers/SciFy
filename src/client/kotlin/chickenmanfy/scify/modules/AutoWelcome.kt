@@ -30,7 +30,7 @@ fun toggleAutoWelcome() {
 class AutoWelcome: ClientReceiveMessageEvents.Game {
 
     override fun onReceiveGameMessage(message: Text?, overlay: Boolean) {
-        if (overlay || !Global().ipCheck()[0] || !autoWelcomeToggle!!) { return }
+        if (overlay || !autoWelcomeToggle!!) { return }
         //MinecraftClient.getInstance().networkHandler?.sendChatMessage("hello")
         println("WOAAAH")
         println(message?.string)

@@ -7,7 +7,6 @@ import net.minecraft.client.gl.RenderPipelines
 import net.minecraft.client.gui.DrawContext
 import net.minecraft.client.render.RenderTickCounter
 import net.minecraft.component.DataComponentTypes
-import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 import org.yaml.snakeyaml.Yaml
 import java.awt.Color
@@ -35,16 +34,8 @@ fun toggleCooldown() {
 class Cooldown: HudElement {
 
 
-    fun cooldown() {
-      if (Global().ipCheck()[0]) {
-            if (cooldownToggle == true) {
-                MinecraftClient.getInstance().player?.sendMessage(Text.literal(MinecraftClient.getInstance().player?.itemCooldownManager?.getCooldownProgress(MinecraftClient.getInstance().player?.mainHandStack, 1F).toString()), false)
-            }
-        }
-    }
-
     override fun render(context: DrawContext?, tickCounter: RenderTickCounter?) {
-        if (!Global().ipCheck()[0] || !cooldownToggle!!) { return }
+        if (!cooldownToggle!!) { return }
         val client = MinecraftClient.getInstance()
 
         // Legacy Code

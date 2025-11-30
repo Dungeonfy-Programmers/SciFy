@@ -41,7 +41,7 @@ class Watermark: HudElement {
         }
     })*/
     override fun render(context: DrawContext?, tickCounter: RenderTickCounter?) {
-        if (!Global().ipCheck()[0] || !watermarkToggle!!) { return } // make sure this is supposed to render
+        if (!watermarkToggle!!) { return } // make sure this is supposed to render
 
         val client = MinecraftClient.getInstance()
         val scifyVersion = "0.4.1"

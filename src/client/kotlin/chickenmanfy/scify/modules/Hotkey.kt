@@ -49,20 +49,13 @@ class Hotkey {
 
         ClientTickEvents.END_CLIENT_TICK.register(ClientTickEvents.EndTick {
             while (warp.wasPressed()) {
-                if (Global().ipCheck()[0]) {
-                    MinecraftClient.getInstance().networkHandler!!.sendChatCommand("warp")
-                }
-
+                MinecraftClient.getInstance().networkHandler!!.sendChatCommand("warp")
             }
             while (enderchest.wasPressed()) {
-                if (Global().ipCheck()[0]) {
-                    MinecraftClient.getInstance().networkHandler!!.sendChatCommand("ec")
-                }
+                MinecraftClient.getInstance().networkHandler!!.sendChatCommand("ec")
             }
             while (guide.wasPressed()) {
-                if (Global().ipCheck()[1]) {
-                    MinecraftClient.getInstance().networkHandler!!.sendChatCommand("guide")
-                }
+                MinecraftClient.getInstance().networkHandler!!.sendChatCommand("guide")
             }
             while (menu.wasPressed()) {
                 MinecraftClient.getInstance().setScreen(Menu())
