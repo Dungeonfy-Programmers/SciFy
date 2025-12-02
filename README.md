@@ -36,7 +36,7 @@ _Currently in beta so expect bugs._
 
 | Server      | Supported | Features | Ips                                 |
 |-------------|-----------|----------|-------------------------------------|
-| Dungeonfy   | Yes       | All      | `localhost`, `dungeonfy.minehut.gg` |
+| Dungeonfy   | Yes       | All      | `localhost`, `dungeonfy.minehut.gg`, `dfymuseum.minehut.gg` |
 | Miningfy    | Yes       | Some*    | `miningfy.minehut.gg`               |
 | Minehut     | Yes       | Some*    | `minehut.com`                       |
 | Joefy       | No        | None     | N/A                                 |
